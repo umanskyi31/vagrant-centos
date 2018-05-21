@@ -1,0 +1,24 @@
+#Path from root of project
+dir_path: './vagrant/'
+
+#Path from root to config folder
+dir_config: './vagrant/centos/config/'
+
+#Path from root to provision folder
+dir_provision: './vagrant/centos/provision/'
+
+#Used box for vagrant
+box: 'centos/7'
+
+#Folder for syncs
+sync_folder: './'
+
+#Path folder in vagrant
+path_folder_vagrant: '/var/www/sites/'
+
+#Create user in vagrant
+user: 'vagrant'
+
+#Group user in vagrant
+group_user: 'vagrant'
+
