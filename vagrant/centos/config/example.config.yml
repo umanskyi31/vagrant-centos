@@ -1,5 +1,5 @@
 #Virtual Machine name
-machine_name: vagrant_machine
+machine_name: vum-vagrant
 
 #Guest timezone
 timezone: Europe/Kiev

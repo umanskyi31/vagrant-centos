@@ -21,8 +21,6 @@ end
 
 options = YAML::load_file(file)
 
-puts "UP VAGRANT"
-
 Vagrant.configure("2") do |config|
   config.vm.box = VAGRANT_CONFIG['box']
   config.vm.provider 'virtualbox' do |vb|
@@ -43,9 +41,13 @@ Vagrant.configure("2") do |config|
   # network settings
   config.vm.network 'private_network', ip: options['ip']
 
-  # sync: folder 'yii2-app-advanced' (host machine) -> folder '/app' (guest machine)
-  #config.vm.synced_folder VAGRANT_CONFIG['sync_folder'], VAGRANT_CONFIG['path_folder_vagrant'], owner: VAGRANT_CONFIG['user'], group: VAGRANT_CONFIG['group_user']
+  # disable folder '/vagrant' (guest machine)
+  #config.vm.synced_folder '.', '/vagrant', disabled: true
+  config.vm.synced_folder '.', '/vagrant'
+
+  # sync folder
+  #config.vm.synced_folder './', '/app', owner: 'vagrant', group: 'vagrant'
 
   #provision
-  config.vm.provision :shell, path: VAGRANT_CONFIG['dir_provision'] + "install.sh"
+  config.vm.provision 'shell', path: VAGRANT_CONFIG['dir_provision'] + "install.sh", args: [options['timezone']]
 end

@@ -1,3 +1,6 @@
+#Current version
+version: 1.0
+
 #Path from root of project
 dir_path: './vagrant/'
 
@@ -14,7 +17,7 @@ box: 'centos/7'
 sync_folder: './'
 
 #Path folder in vagrant
-path_folder_vagrant: '/var/www/sites/'
+path_folder_vagrant: '/home/vagrant/www/'
 
 #Create user in vagrant
 user: 'vagrant'
