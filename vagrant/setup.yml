@@ -5,10 +5,10 @@ version: 1.0
 dir_path: './vagrant/'
 
 #Path from root to config folder
-dir_config: './vagrant/centos/config/'
+dir_config: './vagrant/config/'
 
 #Path from root to provision folder
-dir_provision: './vagrant/centos/provision/'
+dir_provision: './vagrant/provision/'
 
 #Used box for vagrant
 box: 'centos/7'

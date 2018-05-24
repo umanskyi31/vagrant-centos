@@ -41,13 +41,15 @@ Vagrant.configure("2") do |config|
   # network settings
   config.vm.network 'private_network', ip: options['ip']
 
-  # disable folder '/vagrant' (guest machine)
-  #config.vm.synced_folder '.', '/vagrant', disabled: true
-  config.vm.synced_folder '.', '/vagrant'
-
   # sync folder
   #config.vm.synced_folder './', '/app', owner: 'vagrant', group: 'vagrant'
 
+    # disable folder '/vagrant' (guest machine)
+  #  config.vm.synced_folder '.', '/vagrant', disabled: true
+  config.vm.synced_folder '.', '/vagrant', owner: 'vagrant', group: 'vagrant'
+
   #provision
   config.vm.provision 'shell', path: VAGRANT_CONFIG['dir_provision'] + "install.sh", args: [options['timezone']]
+  config.vm.provision 'shell', path: VAGRANT_CONFIG['dir_provision'] + "mariadb.sh"
+  config.vm.provision 'shell', path: VAGRANT_CONFIG['dir_provision'] + "php71.sh"
 end
