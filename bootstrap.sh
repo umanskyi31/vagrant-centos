@@ -42,7 +42,7 @@ sudo yum install -y yum-utils
 # which you can use to enable Remi repository as the default repository for installing different PHP versions as shown
 sudo yum-config-manager --enable remi-php71
 #install php
-sudo yum install -y php71 php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo  php-mbstring php-xml
+sudo yum install -y php71 php-mcrypt php-cli php-gd php-curl php-mysql php-ldap php-zip php-fileinfo  php-mbstring php-xml php-opcache
 #---END PHP----
 
 echo "INCLUDE ADDITIONAL SOFT"
