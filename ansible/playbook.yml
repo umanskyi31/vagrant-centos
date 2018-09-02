@@ -1,0 +1,22 @@
+---
+- hosts: vb
+  become: true
+
+  vars:
+    php_enablerepo: "remi-php72"
+    php_version: '7.2'
+    php_webserver_daemon: "nginx"
+    php_enable_php_fpm: true
+
+#  pre_tasks:
+#    import_tasks: ./tasks/update_packages.yml
+  pre_tasks:
+    - name: Update packages (yum update)
+      action: yum name=* state=latest
+
+  roles:
+    - { role: geerlingguy.nginx }
+    - { role: geerlingguy.repo-remi }
+    - { role: geerlingguy.php-versions }
+    - { role: geerlingguy.php }
+    - { role: geerlingguy.mysql }
