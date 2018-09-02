@@ -1,0 +1,14 @@
+---
+- name: Ensure additional packages for development are installed
+  package:
+    name: "{{ item }}"
+    state: "present"
+  with_items:
+      - mc
+      - zip
+      - git
+      - libpng-devel
+      - gcc
+      - gcc-c++
+      - autoconf
+      - automake

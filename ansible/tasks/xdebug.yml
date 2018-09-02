@@ -1,0 +1,15 @@
+---
+- name: Ensure XDebug is installed
+  pear:
+    name: pecl/Xdebug
+    state: present
+- shell: cp /etc/php.ini /etc/php-noxdebug.ini
+  creates: /etc/php-noxdebug.ini
+  become_method: sudo
+- blockinfile:
+    path: /etc/php.ini
+    block: |
+      [xdebug]
+      zend_extension="/usr/lib64/php/modules/xdebug.so"
+      xdebug.remote_enable=1
+      xdebug.remote_host=192.168.33.31

@@ -8,8 +8,6 @@
     php_webserver_daemon: "nginx"
     php_enable_php_fpm: true
 
-#  pre_tasks:
-#    import_tasks: ./tasks/update_packages.yml
   pre_tasks:
     - name: Update packages (yum update)
       action: yum name=* state=latest
@@ -20,3 +18,11 @@
     - { role: geerlingguy.php-versions }
     - { role: geerlingguy.php }
     - { role: geerlingguy.mysql }
+    - { role: geerlingguy.nodejs }
+
+  tasks:
+    - import_tasks: ./tasks/nginx.yml
+    - import_tasks: ./tasks/composer.yml
+    - import_tasks: ./tasks/additional.yml
+#    - import_tasks: ./tasks/xdebug.yml
+#    - import_tasks: ./tasks/phpunit.yml

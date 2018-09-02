@@ -1,0 +1,8 @@
+---
+- name: Ensure PHPUnit is installed globally.
+  get_url:
+    url: https://phar.phpunit.de/phpunit-7.phar
+    dest: /usr/local/bin/phpunit
+    mode: 0775
+- shell: chmod +x /usr/local/bin/phpunit
+  become_method: sudo

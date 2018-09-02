@@ -1,0 +1,5 @@
+---
+- name: Copy config nginx file
+  copy:
+    src: ./../templates/nginx/vhosts/test_config.conf
+    dest: /etc/nginx/
